@@ -7,19 +7,17 @@
     tools:context=".TrainerMainPage">
 
     <TextView
+        android:id="@+id/trainerlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tagline"
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:text="TRAINER DASHBOARD"
-        android:textSize="35sp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:layout_gravity="center"
         android:textColor="#0f2d5e"
-        android:layout_below="@+id/tagline"
-        android:id="@+id/trainerlogin"
-        >
-    </TextView>
+        android:textSize="35sp"
+        android:textStyle="bold"></TextView>
 
     <TableRow
         android:layout_marginRight="20dp"
@@ -122,6 +120,25 @@
             android:layout_weight="4"
             >
         </Button>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/row4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:onClick="logout"
+            android:text="Log Out"
+            android:textSize="14sp"
+            app:backgroundTint="@color/black"></Button>
 
     </TableRow>
 

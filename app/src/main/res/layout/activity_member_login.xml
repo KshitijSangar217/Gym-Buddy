@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemberLogin">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/whitebg"
+        android:scaleType="fitXY"
+        >
+    </ImageView>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_baseline_fitness_center_24"
+        app:backgroundTint="@color/black"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/robot1"
+        >
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="GYM BUDDY"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#313082"
+        android:layout_toRightOf="@+id/robot1"
+        android:id="@+id/name_logo"
+        >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Commit to be fit"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/name_logo"
+        android:layout_toRightOf="@id/robot1"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/tagline"
+        >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="MEMBER LOGIN"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="#313082"
+        android:layout_below="@+id/tagline"
+        android:id="@+id/trainerlogin"
+        >
+    </TextView>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:hint="Username"
+        android:textSize="20sp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundedbutton"
+        app:backgroundTint="#d4cced"
+        android:gravity="center"
+        android:layout_below="@+id/trainerlogin"
+        android:id="@+id/emailans"
+        >
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:hint="Password"
+        android:textSize="20sp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundedbutton"
+        app:backgroundTint="#d4cced"
+        android:gravity="center"
+        android:layout_below="@+id/emailans"
+        android:id="@+id/passwordans"
+        >
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot your password ?"
+        android:layout_margin="30dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:id="@+id/forgotpass"
+        android:layout_below="@+id/passwordans"
+        >
+    </TextView>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forgotpass"
+        android:layout_centerInParent="true"
+        android:text="Sign in"
+        android:textColor="@color/white"
+        app:backgroundTint="#313082"
+        android:id="@+id/signin"
+        >
+    </Button>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="------ or ------"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_centerInParent="true"
+        android:id="@+id/ormsg"
+        android:layout_below="@+id/signin"
+        >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign up!"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="right"
+        android:id="@+id/new_acc_msg"
+        android:layout_below="@+id/ormsg"
+        android:onClick="newmember"
+        >
+    </TextView>
+
+</RelativeLayout>

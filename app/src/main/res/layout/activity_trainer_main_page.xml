@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrainerMainPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="TRAINER DASHBOARD"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="#0f2d5e"
+        android:layout_below="@+id/tagline"
+        android:id="@+id/trainerlogin"
+        >
+    </TextView>
+
+    <TableRow
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/row1"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:paddingTop="40dp"
+            android:drawableTop="@drawable/ic_baseline_manage_accounts_24"
+            android:text="My Account"
+            android:layout_weight="2.5"
+            android:textSize="12sp"
+            app:backgroundTint="#cf3c32"
+            >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:backgroundTint="#ded75d"
+            android:drawableTop="@drawable/ic_baseline_people_24"
+            android:textSize="12sp"
+            android:paddingTop="40dp"
+            android:text="Members"
+            android:layout_weight="4"
+            >
+        </Button>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/row2"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:paddingTop="40dp"
+            android:drawableTop="@drawable/ic_baseline_book_24"
+            android:text="Attendance"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            app:backgroundTint="#90c961"
+            >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:backgroundTint="#258a4f"
+            android:drawableTop="@drawable/ic_baseline_money_24"
+            android:textSize="12sp"
+            android:paddingTop="40dp"
+            android:text="Fee Status"
+            android:layout_weight="2.5"
+            >
+        </Button>
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/row3"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:paddingTop="40dp"
+            android:drawableTop="@drawable/ic_baseline_add_shopping_cart_24"
+            android:text="Products"
+            android:layout_weight="2.5"
+            android:textSize="12sp"
+            app:backgroundTint="#55c0f2"
+            >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:backgroundTint="#164f7d"
+            android:drawableTop="@drawable/ic_baseline_food_bank_24"
+            android:textSize="12sp"
+            android:paddingTop="40dp"
+            android:text="Diet"
+            android:layout_weight="4"
+            >
+        </Button>
+
+    </TableRow>
+
+</TableLayout>

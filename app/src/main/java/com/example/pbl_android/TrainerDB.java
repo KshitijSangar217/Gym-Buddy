@@ -28,13 +28,11 @@ public class TrainerDB {
 
     public TrainerDB() {}
 
-    public TrainerDB(String email, String name, String address, String phone, String gender, gymMembers gm, remoteMembers rm){
+    public TrainerDB(String email, String name, String address, String phone, String gender){
         this.email = email;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.gender = gender;
-        this.gm = gm;
-        this.rm = rm;
     }
 }

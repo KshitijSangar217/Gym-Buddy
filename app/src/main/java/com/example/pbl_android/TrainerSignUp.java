@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class TrainerSignUp extends AppCompatActivity {
@@ -93,37 +94,40 @@ public class TrainerSignUp extends AppCompatActivity {
 
 
                             //Backend Changes
-                            TrainerDB trainer = new TrainerDB(email, name, address, phone, gender, gm, rm);
+                            TrainerDB trainer = new TrainerDB(email, name, address, phone, gender);
+
+                            //********************here*********************//
 
                             FirebaseDatabase.getInstance().getReference("Trainers")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(trainer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())  //Key
+                                    .setValue(trainer).addOnCompleteListener(new OnCompleteListener<Void>() { //Value
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     //Task of adding a new Trainer data
                                     if(task.isSuccessful()){
-                                        //Frontend Changes
-                                        Toast.makeText(TrainerSignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
-                                    }
-                                    else {
-                                        Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        //Backend Changes
+                                        //Getting Current user ID
+                                        String trainer_id = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+
+                                        FirebaseDatabase.getInstance().getReference("Trainers/"+ trainer_id + "/gymMembers")
+                                                .child(gm.gm_id)
+                                                .setValue(gm.gm_email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+                                                    //Frontend Changes
+                                                    Toast.makeText(TrainerSignUp.this, "Registration Successful"+ trainer_id, Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
+                                                }
+                                                else {
+                                                    Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
                                     }
                                 }
                             });
-
-                            //Previously Added
-                            /*
-                            //Frontend Changes
-                            Toast.makeText(TrainerSignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
-                            */
                         }
-                        /*
-                        else {
-                            Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                        */
                     }
                 });
             }

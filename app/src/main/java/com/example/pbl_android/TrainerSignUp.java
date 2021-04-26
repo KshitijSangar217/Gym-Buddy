@@ -16,11 +16,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TrainerSignUp extends AppCompatActivity {
 
-    EditText username, pwd;
-    Button signup;
+    //Frontend variables
+    EditText femail, fname, faddress, fphone, fgender, fpassword;
+    Button fsignup;
     FirebaseAuth fAuth;
 
 
@@ -30,24 +32,49 @@ public class TrainerSignUp extends AppCompatActivity {
         setContentView(R.layout.activity_trainer_sign_up);
 
         //Hooking up
-        signup = findViewById(R.id.signin);
-        username = findViewById(R.id.emailans);
-        pwd = findViewById(R.id.passwordans);
+        fsignup = findViewById(R.id.signin);
+        femail = findViewById(R.id.emailans);
+        fname = findViewById(R.id.nameans);
+        faddress = findViewById(R.id.addrans);
+        fphone = findViewById(R.id.contactans);
+        fgender = findViewById(R.id.genderans);
+        fpassword = findViewById(R.id.passwordans);
 
         fAuth = FirebaseAuth.getInstance();
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        fsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = username.getText().toString().trim();
-                String password = pwd.getText().toString().trim();
+                String email = femail.getText().toString().trim();
+                String name = fname.getText().toString().trim();
+                String address = faddress.getText().toString().trim();
+                String phone = fphone.getText().toString().trim();
+                String gender = fgender.getText().toString().trim();
+                String password = fpassword.getText().toString().trim();
+
 
                 if(TextUtils.isEmpty(email)){
-                    username.setError("Email is Required !");
+                    femail.setError("Email is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(name)){
+                    fname.setError("Name is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(address)){
+                    faddress.setError("Email is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(phone)){
+                    fphone.setError("Email is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(gender)){
+                    fgender.setError("Email is Required !");
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    pwd.setError("Password is Required !");
+                    fpassword.setError("Password is Required !");
                     return;
                 }
 
@@ -60,12 +87,43 @@ public class TrainerSignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            //Creating the gym members list and the remote members list.
+                            TrainerDB.gymMembers gm = new TrainerDB.gymMembers("1000", "1000@gmail.com");
+                            TrainerDB.remoteMembers rm = new TrainerDB.remoteMembers("2000", "2000@gmail.com");
+
+
+                            //Backend Changes
+                            TrainerDB trainer = new TrainerDB(email, name, address, phone, gender, gm, rm);
+
+                            FirebaseDatabase.getInstance().getReference("Trainers")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(trainer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    //Task of adding a new Trainer data
+                                    if(task.isSuccessful()){
+                                        //Frontend Changes
+                                        Toast.makeText(TrainerSignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
+                                    }
+                                    else {
+                                        Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                            //Previously Added
+                            /*
+                            //Frontend Changes
                             Toast.makeText(TrainerSignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
+                            */
                         }
+                        /*
                         else {
                             Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
+                        */
                     }
                 });
             }

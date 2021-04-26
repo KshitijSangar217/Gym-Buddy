@@ -116,7 +116,7 @@ public class TrainerSignUp extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     //Frontend Changes
-                                                    Toast.makeText(TrainerSignUp.this, "Registration Successful"+ trainer_id, Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(TrainerSignUp.this, "Registration Successful !", Toast.LENGTH_SHORT).show();
                                                     startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
                                                 }
                                                 else {

@@ -123,7 +123,7 @@
         android:text="Sign in"
         android:textColor="@color/white"
         app:backgroundTint="#313082"
-        android:id="@+id/signin"
+        android:id="@+id/signinbtn"
         >
     </Button>
 
@@ -137,7 +137,7 @@
         android:textSize="18sp"
         android:layout_centerInParent="true"
         android:id="@+id/ormsg"
-        android:layout_below="@+id/signin"
+        android:layout_below="@+id/signinbtn"
         >
     </TextView>
 

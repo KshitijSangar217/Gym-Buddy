@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MemberSignUp">
+    tools:context=".TrainerSignUp">
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,28 +31,24 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textColor="#0f2d5e"
-        android:layout_below="@+id/tagline"
-        android:id="@+id/trainerlogin"
+        android:id="@+id/membersignup"
         >
     </TextView>
 
-
-
     <EditText
+        android:id="@+id/memailans"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:textColor="@color/black"
+        android:layout_below="@+id/membersignup"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="14dp"
+        android:gravity="center"
         android:hint="Username"
         android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/trainerlogin"
-        android:id="@+id/emailans"
-        >
+        android:textColor="@color/black"
+        android:textSize="20sp">
     </EditText>
 
     <EditText
@@ -60,158 +56,17 @@
         android:layout_height="42dp"
         android:textColor="@color/black"
         android:hint="Name"
-        android:textColorHint="#CB393838"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/emailans"
-        android:id="@+id/nameans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Address"
         android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_below="@+id/nameans"
-        android:id="@+id/addrans"
+        android:layout_below="@+id/memailans"
+        android:id="@+id/mnameans"
         >
     </EditText>
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Contact No"
-        android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/addrans"
-        android:id="@+id/contactans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Gender (M/F)"
-        android:textColorHint="#CB393838"
-        android:textSize="18sp"
-        android:layout_marginRight="14dp"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/contactans"
-        android:layout_below="@id/addrans"
-        android:id="@+id/genderans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Plan "
-        android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/contactans"
-        android:id="@+id/planans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="90dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Age "
-        android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/contactans"
-        android:layout_toRightOf="@id/planans"
-        android:id="@+id/ageans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="140dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Blood Group"
-        android:textColorHint="#CB393838"
-        android:textSize="18sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_toRightOf="@+id/ageans"
-        android:layout_below="@+id/contactans"
-        android:id="@+id/bloodgrpans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Height "
-        android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_below="@+id/planans"
-        android:id="@+id/heightans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Weight "
-        android:textColorHint="#CB393838"
-        android:textSize="20sp"
-        android:layout_marginRight="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_toRightOf="@+id/heightans"
-        android:layout_below="@+id/planans"
-        android:id="@+id/weightans"
-        >
-    </EditText>
-
-
 
     <EditText
         android:layout_width="match_parent"
@@ -225,8 +80,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_below="@+id/weightans"
-        android:id="@+id/passwordans"
+        android:layout_below="@+id/mnameans"
+        android:id="@+id/mpasswordans"
         >
     </EditText>
 
@@ -235,13 +90,15 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/passwordans"
+        android:layout_below="@id/mpasswordans"
         android:layout_centerInParent="true"
         android:text="Sign up"
         android:textColor="@color/white"
         app:backgroundTint="#0f2d5e"
-        android:id="@+id/signin"
+        android:id="@+id/membersignupbtn"
         >
     </Button>
+
+
 
 </RelativeLayout>

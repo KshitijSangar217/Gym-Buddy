@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,8 @@ public class MemberLogin extends AppCompatActivity {
     EditText emailtxt, passtxt;
     FirebaseAuth fAuth;
     Button loginbtn;
+    ProgressBar fprogressbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MemberLogin extends AppCompatActivity {
         passtxt = findViewById(R.id.passwordans);
         loginbtn = findViewById(R.id.signinbtn);
         fAuth = FirebaseAuth.getInstance();
+        fprogressbar = findViewById(R.id.member_progress);
 
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -50,11 +54,14 @@ public class MemberLogin extends AppCompatActivity {
                     return ;
                 }
 
+                fprogressbar.setVisibility(View.VISIBLE);
+
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(MemberLogin.this, "Login Successful", Toast.LENGTH_LONG).show();
+                            fprogressbar.setVisibility(View.INVISIBLE);
                             Intent i = new Intent(MemberLogin.this, MemberMainPage.class);
                             startActivity(i);
                         }

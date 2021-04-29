@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class MemberInfo extends AppCompatActivity {
     RadioButton onlinebtn, offlinebtn;
     Button creatememacc;
     FirebaseAuth fAuth;
+    ProgressBar fprogressbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,7 @@ public class MemberInfo extends AppCompatActivity {
                     return;
                 }
 
+                fprogressbar.setVisibility(View.VISIBLE);
 
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers");
                 Query checkuser = ref.orderByChild("email").equalTo(tremail);
@@ -172,6 +176,7 @@ public class MemberInfo extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()) {
                                         Toast.makeText(MemberInfo.this, "Registration Successful !", Toast.LENGTH_LONG).show();
+                                        fprogressbar.setVisibility(View.INVISIBLE);
                                         Intent i = new Intent(MemberInfo.this, MemberMainPage.class);
                                         startActivity(i);
                                         finish();

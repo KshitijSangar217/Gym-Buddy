@@ -1,8 +1,9 @@
-package com.example.pbl_android;
+    package com.example.pbl_android;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.DatabaseUtils;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +27,7 @@ public class TrainerSignUp extends AppCompatActivity {
     EditText femail, fname, faddress, fphone, fgender, fpassword;
     Button fsignup;
     FirebaseAuth fAuth;
+    ProgressBar fprogressbar;
 
 
     @Override
@@ -40,6 +43,7 @@ public class TrainerSignUp extends AppCompatActivity {
         fphone = findViewById(R.id.contactans);
         fgender = findViewById(R.id.genderans);
         fpassword = findViewById(R.id.passwordans);
+        fprogressbar = findViewById(R.id.trainer_progress);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -84,6 +88,8 @@ public class TrainerSignUp extends AppCompatActivity {
                     finish();
                 }
 
+                fprogressbar.setVisibility(View.VISIBLE);
+
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -117,6 +123,7 @@ public class TrainerSignUp extends AppCompatActivity {
                                                 if(task.isSuccessful()){
                                                     //Frontend Changes
                                                     Toast.makeText(TrainerSignUp.this, "Registration Successful !", Toast.LENGTH_SHORT).show();
+                                                    fprogressbar.setVisibility(View.INVISIBLE);
                                                     startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
                                                 }
                                                 else {

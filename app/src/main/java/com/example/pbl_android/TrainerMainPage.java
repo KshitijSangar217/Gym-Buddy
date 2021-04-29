@@ -19,6 +19,6 @@ public class TrainerMainPage extends AppCompatActivity {
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),TrainerLogin.class));
+        startActivity(new Intent(getApplicationContext(),SelectType.class));
     }
 }

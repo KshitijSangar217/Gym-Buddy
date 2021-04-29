@@ -156,4 +156,13 @@
         >
     </TextView>
 
+    <ProgressBar
+        android:id="@+id/member_progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bgcircle"
+        android:padding="5dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:visibility="invisible"/>
 </RelativeLayout>

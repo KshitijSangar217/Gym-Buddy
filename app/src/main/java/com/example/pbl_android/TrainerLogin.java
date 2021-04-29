@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ public class TrainerLogin extends AppCompatActivity {
     EditText txtin_email, txtin_password;
     Button btn_signin;
     FirebaseAuth fAuth;
+    ProgressBar fprogressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class TrainerLogin extends AppCompatActivity {
         txtin_password = findViewById(R.id.passwordans);
         btn_signin = findViewById(R.id.signin);
         fAuth = FirebaseAuth.getInstance();
+        fprogressbar = findViewById(R.id.trainer_progress);
 
         //Onclick Event
         btn_signin.setOnClickListener(new View.OnClickListener() {
@@ -49,13 +52,14 @@ public class TrainerLogin extends AppCompatActivity {
                     return;
                 }
 
-
+                fprogressbar.setVisibility(View.VISIBLE);
                 //Signin Authentication
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(TrainerLogin.this, "SignIn Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TrainerLogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            fprogressbar.setVisibility(View.INVISIBLE);
                             startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
                         }
                         else {

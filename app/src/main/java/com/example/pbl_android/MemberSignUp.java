@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ public class MemberSignUp extends AppCompatActivity {
     Button memsignupbtn;
     FirebaseAuth fAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class MemberSignUp extends AppCompatActivity {
         mpassword = findViewById(R.id.mpasswordans);
         memsignupbtn = findViewById(R.id.membersignupbtn);
         fAuth = FirebaseAuth.getInstance();
+
 
         memsignupbtn.setOnClickListener(new View.OnClickListener() {
             @Override

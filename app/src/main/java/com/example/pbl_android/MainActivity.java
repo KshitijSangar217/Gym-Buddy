@@ -34,12 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 if(fAuth.getCurrentUser() != null){
                     //intent=new Intent(MainActivity.this, TrainerMainPage.class);
                     String id = fAuth.getCurrentUser().getUid();
-                    Log.d("Prathmesh", "run: id : "+id);
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers");
                     ref.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Log.d("Prathmesh", "onDataChange: "+snapshot.exists());
                             if (snapshot.exists())
                             {
                                 Intent i = new Intent(MainActivity.this, TrainerMainPage.class);

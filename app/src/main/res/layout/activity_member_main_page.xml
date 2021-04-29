@@ -158,5 +158,23 @@
         </Button>
 
     </TableRow>
+    <TableRow
+        android:id="@+id/row5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:onClick="logout"
+            android:text="Log Out"
+            android:textSize="14sp"
+            app:backgroundTint="@color/black"></Button>
+
+    </TableRow>
 
 </TableLayout>

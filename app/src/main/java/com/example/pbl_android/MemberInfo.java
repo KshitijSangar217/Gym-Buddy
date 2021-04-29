@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class MemberInfo extends AppCompatActivity {
 
@@ -65,9 +71,6 @@ public class MemberInfo extends AppCompatActivity {
                 String memheight = mheight.getText().toString();
                 String memweight = mweight.getText().toString();
                 String memplan;
-                /*String result = "Usernm : " + mememail + "\n";
-                result = result +  "Password : " + mempassword + "\n";
-                result = result +  "Name : " + memname + "\n";*/
 
                 int selectid = plangrp.getCheckedRadioButtonId();
                 if(selectid == onlinebtn.getId()) {
@@ -77,14 +80,44 @@ public class MemberInfo extends AppCompatActivity {
                     memplan = offlinebtn.getText().toString();
                 }
 
-                //result = result +  "Plan : " + memplan + "\n";
 
 
                 if(TextUtils.isEmpty(tremail)) {
                     traineremail.setError("Trainer Email is Required !");
                     return;
                 }
-                //result = result +  "Trainer Mail : " + memname + "\n";
+
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers");
+                Query checkuser = ref.orderByChild("email").equalTo(tremail);
+
+                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            for(DataSnapshot childsnapshot : snapshot.getChildren())
+                            {
+                                String key = childsnapshot.getKey();
+                                Log.d("Prathmesh", "onDataChange:"+key);
+                                MemberintrainerDB mit = new MemberintrainerDB(mememail, memname);
+                                FirebaseDatabase.getInstance().getReference("Trainers/"+key+"/gymMembers")
+                                        .setValue(mit).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Log.d("Prathmesh", "onComplete: Added in trainer"+key);
+                                    }
+                                });
+                            }
+                        }
+                        else {
+                            traineremail.setError("No such trainer. Please recheck the email.");
+                            return ;
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
 
                 if(TextUtils.isEmpty(memaddress)) {
                     maddress.setError("Address is Required !");

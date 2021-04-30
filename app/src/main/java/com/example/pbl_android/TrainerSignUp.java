@@ -94,6 +94,7 @@ public class TrainerSignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
                             //Creating the gym members list and the remote members list.
                             TrainerDB.gymMembers gm = new TrainerDB.gymMembers("1000", "1000@gmail.com");
                             TrainerDB.remoteMembers rm = new TrainerDB.remoteMembers("2000", "2000@gmail.com");

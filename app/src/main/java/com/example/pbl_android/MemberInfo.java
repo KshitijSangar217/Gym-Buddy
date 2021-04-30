@@ -37,7 +37,6 @@ public class MemberInfo extends AppCompatActivity {
     FirebaseAuth fAuth;
     ProgressBar fprogressbar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +56,12 @@ public class MemberInfo extends AppCompatActivity {
         creatememacc = findViewById(R.id.creatememaccbtn);
         temptxt = findViewById(R.id.temptxt);
         fAuth = FirebaseAuth.getInstance();
+        fprogressbar = findViewById(R.id.member_progress);
 
         creatememacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(MemberInfo.this, "OnClick() is executed", Toast.LENGTH_SHORT).show();
                 Intent currintent = getIntent();
                 String mememail = currintent.getExtras().get("Username").toString();
                 String mempassword = currintent.getExtras().get("Password").toString();
@@ -74,6 +75,9 @@ public class MemberInfo extends AppCompatActivity {
                 String memheight = mheight.getText().toString();
                 String memweight = mweight.getText().toString();
                 String memplan;
+                /*String result = "Usernm : " + mememail + "\n";
+                result = result +  "Password : " + mempassword + "\n";
+                result = result +  "Name : " + memname + "\n";*/
 
                 int selectid = plangrp.getCheckedRadioButtonId();
                 if(selectid == onlinebtn.getId()) {
@@ -83,6 +87,7 @@ public class MemberInfo extends AppCompatActivity {
                     memplan = offlinebtn.getText().toString();
                 }
 
+                //result = result +  "Plan : " + memplan + "\n";
 
 
                 if(TextUtils.isEmpty(tremail)) {
@@ -90,38 +95,7 @@ public class MemberInfo extends AppCompatActivity {
                     return;
                 }
 
-                fprogressbar.setVisibility(View.VISIBLE);
 
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers");
-                Query checkuser = ref.orderByChild("email").equalTo(tremail);
-
-                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()) {
-                            for(DataSnapshot childsnapshot : snapshot.getChildren())
-                            {
-                                String key = childsnapshot.getKey();
-                                Log.d("Prathmesh", "onDataChange:"+key);
-                                MemberintrainerDB mit = new MemberintrainerDB(mememail, memname);
-                                FirebaseDatabase.getInstance().getReference("Trainers/"+key+"/gymMembers")
-                                        .setValue(mit).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        Log.d("Prathmesh", "onComplete: Added in trainer"+key);
-                                    }
-                                });
-                            }
-                        }
-                        else {
-                            traineremail.setError("No such trainer. Please recheck the email.");
-                            return ;
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {}
-                });
 
                 if(TextUtils.isEmpty(memaddress)) {
                     maddress.setError("Address is Required !");
@@ -163,31 +137,88 @@ public class MemberInfo extends AppCompatActivity {
                     return;
                 }
 
-                fAuth.createUserWithEmailAndPassword(mememail, mempassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                fprogressbar.setVisibility(View.VISIBLE);
+
+                //Toast.makeText(MemberInfo.this, "#1----", Toast.LENGTH_SHORT).show();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers");
+                //Toast.makeText(MemberInfo.this, "#2----", Toast.LENGTH_SHORT).show();
+                Query checkuser = ref.orderByChild("email").equalTo(tremail);
+                //Toast.makeText(MemberInfo.this, "#3----", Toast.LENGTH_SHORT).show();
+
+                checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, Integer.parseInt(memage), Integer.parseInt(memheight), Integer.parseInt(memweight));
-                            FirebaseDatabase.getInstance().getReference("Members")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(mem).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //Toast.makeText(MemberInfo.this, "#4----", Toast.LENGTH_SHORT).show();
+                        if(snapshot.exists()) {
+                            //Toast.makeText(MemberInfo.this, "Inside-> if(snapshot.exists())", Toast.LENGTH_SHORT).show();
+
+
+                            for(DataSnapshot childsnapshot : snapshot.getChildren()){
+                                String key = childsnapshot.getKey();
+                                //Toast.makeText(MemberInfo.this, "key: " + key, Toast.LENGTH_SHORT).show();
+
+                                Log.d("Prathmesh", "onDataChange:"+key);
+                                MemberintrainerDB mit = new MemberintrainerDB(mememail, memname);
+                                //Toast.makeText(MemberInfo.this, "#5----", Toast.LENGTH_SHORT).show();
+                                FirebaseDatabase.getInstance().getReference("Trainers/"+key+"/gymMembers")
+                                        .child(mit.name.toString())
+                                        .setValue(mit.email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Log.d("Prathmesh", "onComplete: Added in trainer"+key);
+                                    }
+                                });
+                            }
+
+                            fAuth.createUserWithEmailAndPassword(mememail, mempassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()) {
-                                        Toast.makeText(MemberInfo.this, "Registration Successful !", Toast.LENGTH_LONG).show();
-                                        fprogressbar.setVisibility(View.INVISIBLE);
-                                        Intent i = new Intent(MemberInfo.this, MemberMainPage.class);
-                                        startActivity(i);
-                                        finish();
-                                    } else {
-                                        Toast.makeText(MemberInfo.this, "Registration Failed ! Please try again !", Toast.LENGTH_LONG).show();
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful())
+                                    {
+                                        MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, Integer.parseInt(memage), Integer.parseInt(memheight), Integer.parseInt(memweight));
+                                        FirebaseDatabase.getInstance().getReference("Members")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(mem).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()) {
+                                                    Toast.makeText(MemberInfo.this, "Registration Successful !!!", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(MemberInfo.this, MemberMainPage.class);
+                                                    startActivity(i);
+                                                    finish();
+                                                } else {
+                                                    Toast.makeText(MemberInfo.this, "Registration Failed ! Please try again !", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
                                     }
                                 }
-                            });
+                            }); //fAuth.create
+                        }
+                        else {
+                            Toast.makeText(MemberInfo.this, "#Er----", Toast.LENGTH_SHORT).show();
+                            fprogressbar.setVisibility(View.INVISIBLE);
+                            traineremail.setError("No such trainer!! Please recheck the email.");
+                            //return;
                         }
                     }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
                 });
+
+
+
+
+
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
             }
         });
     }

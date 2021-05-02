@@ -49,6 +49,7 @@
             android:paddingTop="40dp"
             android:text="Members"
             android:layout_weight="4"
+            android:onClick="membersList"
             >
         </Button>
 

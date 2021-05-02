@@ -216,9 +216,6 @@ public class MemberInfo extends AppCompatActivity {
 
 
                 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
             }
         });
     }

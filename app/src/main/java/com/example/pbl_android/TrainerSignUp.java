@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -25,10 +26,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TrainerSignUp extends AppCompatActivity {
 
     //Frontend variables
-    TextInputLayout femail, fname, faddress, fphone, fgender, fpassword;
+    TextInputLayout femail, fname, faddress, fphone, fgender, fgpayid, fcertification, fdescription, fonlinefee, fofflinefee, fpassword;
     Button fsignup;
     FirebaseAuth fAuth;
     ProgressBar fprogressbar;
+    CheckBox chbxonline, chbxoffline;
 
 
     @Override
@@ -43,7 +45,14 @@ public class TrainerSignUp extends AppCompatActivity {
         faddress = findViewById(R.id.addrans);
         fphone = findViewById(R.id.contactans);
         fgender = findViewById(R.id.genderans);
+        fgpayid = findViewById(R.id.gpayidans);
+        fcertification = findViewById(R.id.certificationans);
+        fdescription = findViewById(R.id.descriptionans);
+        fonlinefee = findViewById(R.id.onlinefee);
+        fofflinefee = findViewById(R.id.offlinefee);
         fpassword = findViewById(R.id.passwordans);
+        chbxoffline = findViewById(R.id.offlinebtn);
+        chbxonline = findViewById(R.id.onlinebtn);
         fprogressbar = findViewById(R.id.trainer_progress);
 
         fAuth = FirebaseAuth.getInstance();
@@ -56,8 +65,12 @@ public class TrainerSignUp extends AppCompatActivity {
                 String address = faddress.getEditText().getText().toString().trim();
                 String phone = fphone.getEditText().getText().toString().trim();
                 String gender = fgender.getEditText().getText().toString().trim();
+                String gpayid = fgpayid.getEditText().getText().toString().trim();
+                String certification = fcertification.getEditText().getText().toString().trim();
+                String description = fdescription.getEditText().getText().toString().trim();
+                String onlinefee = fonlinefee.getEditText().getText().toString().trim();
+                String offlinefee = fofflinefee.getEditText().getText().toString().trim();
                 String password = fpassword.getEditText().getText().toString().trim();
-
 
                 if(TextUtils.isEmpty(email)){
                     femail.setError("Email is Required !");
@@ -68,15 +81,23 @@ public class TrainerSignUp extends AppCompatActivity {
                     return;
                 }
                 if(TextUtils.isEmpty(address)){
-                    faddress.setError("Email is Required !");
+                    faddress.setError("Adress is Required !");
                     return;
                 }
                 if(TextUtils.isEmpty(phone)){
-                    fphone.setError("Email is Required !");
+                    fphone.setError("Phone No is Required !");
                     return;
                 }
                 if(TextUtils.isEmpty(gender)){
-                    fgender.setError("Email is Required !");
+                    fgender.setError("Gender is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(gpayid)){
+                    fgender.setError("GPayId is Required !");
+                    return;
+                }
+                if(TextUtils.isEmpty(description)){
+                    fgender.setError("Description is Required !");
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
@@ -100,9 +121,18 @@ public class TrainerSignUp extends AppCompatActivity {
                             TrainerDB.gymMembers gm = new TrainerDB.gymMembers("1000", "1000@gmail.com");
                             TrainerDB.remoteMembers rm = new TrainerDB.remoteMembers("2000", "2000@gmail.com");
 
+                            boolean offline = false;
+                            boolean online = false;
+                            if(chbxoffline.isChecked()) {
+                                offline = true;
+                            }
+
+                            if(chbxonline.isChecked()) {
+                                online = true;
+                            }
 
                             //Backend Changes
-                            TrainerDB trainer = new TrainerDB(email, name, address, phone, gender);
+                            TrainerDB trainer = new TrainerDB(email, name, address, phone, gender, gpayid, certification, description, onlinefee, offlinefee, online, offline);
 
                             //********************here*********************//
 

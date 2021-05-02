@@ -22,17 +22,25 @@ public class TrainerDB {
     }
 
     //Main TrainerDB Class being declared
-    public String tid, email, name, address, phone, gender;
+    public String tid, email, name, address, phone, gender, gpayid, certification, description, onlinefee, offlinefee;
+    public boolean online, offline;
     gymMembers gm = new gymMembers(null, null);
     remoteMembers rm = new remoteMembers(null, null);
 
     public TrainerDB() {}
 
-    public TrainerDB(String email, String name, String address, String phone, String gender){
+    public TrainerDB(String email, String name, String address, String phone, String gender, String gpayid, String certification, String description, String onlinefee, String offlinefee, boolean online, boolean offline){
         this.email = email;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.gender = gender;
+        this.gpayid = gpayid;
+        this.certification = certification;
+        this.description = description;
+        this.onlinefee = onlinefee;
+        this.offlinefee = offlinefee;
+        this.online = online;
+        this.offline = offline;
     }
 }

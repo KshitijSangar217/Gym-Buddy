@@ -19,7 +19,7 @@
         android:layout_height="100dp"
         android:src="@drawable/ic_baseline_fitness_center_24"
         app:backgroundTint="@color/black"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/robot1"
         >
@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="GYM BUDDY"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -54,9 +54,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="MEMBER LOGIN"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textColor="#313082"
@@ -65,43 +65,61 @@
         >
     </TextView>
 
-
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textColor="@color/black"
-        android:hint="Username"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:counterTextColor="@color/black"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"
-        android:background="@drawable/roundedbutton"
-        app:backgroundTint="#d4cced"
         android:gravity="center"
         android:layout_below="@+id/trainerlogin"
-        android:id="@+id/emailans"
-        >
-    </EditText>
+        android:id="@+id/emailans">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
+            app:backgroundTint="#B3A0EF"
+            android:textColor="@color/black"
+            android:textSize="20sp">
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:counterTextColor="@color/black"
         android:hint="Password"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"
-        android:background="@drawable/roundedbutton"
-        app:backgroundTint="#d4cced"
         android:gravity="center"
         android:layout_below="@+id/emailans"
         android:id="@+id/passwordans"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedbutton"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"

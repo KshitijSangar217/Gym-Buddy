@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:textColor="@color/black"
-        android:hint="Username"
+        android:hint="Email"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
@@ -92,6 +92,8 @@
         android:hint="Password"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
+        android:inputType="textPassword"
+
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="30dp"

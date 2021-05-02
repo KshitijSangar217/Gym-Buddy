@@ -14,12 +14,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MemberLogin extends AppCompatActivity {
 
-    EditText emailtxt, passtxt;
+    TextInputLayout emailtxt, passtxt;
     FirebaseAuth fAuth;
     Button loginbtn;
     ProgressBar fprogressbar;
@@ -41,8 +42,8 @@ public class MemberLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = emailtxt.getText().toString().trim();
-                String password = passtxt.getText().toString().trim();
+                String email = emailtxt.getEditText().getText().toString().trim();
+                String password = passtxt.getEditText().getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
                     emailtxt.setError("Email ID required !");

@@ -18,12 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitEnd"
-        android:src="@drawable/whitebg1"></ImageView>
+        android:src="@drawable/whitebg1"
+        >
+    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="40dp"
         android:text="TRAINER SIGN UP"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -34,106 +36,159 @@
         >
     </TextView>
 
-    <EditText
-        android:id="@+id/emailans"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_below="@+id/trainerlogin"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="14dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:hint="Email"
-        android:textColorHint="#CB393838"
-        android:textColor="@color/black"
-        android:textSize="20sp">
-    </EditText>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Name"
+        app:counterTextColor="@color/black"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:textColorHint="#CB393838"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_below="@+id/trainerlogin"
+        android:id="@+id/emailans">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp">
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterTextColor="@color/black"
+        android:hint="Name"
+        app:hintTextColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:layout_below="@+id/emailans"
         android:id="@+id/nameans"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        app:counterTextColor="@color/black"
         android:hint="Address"
-        android:textColorHint="#CB393838"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:layout_below="@+id/nameans"
         android:id="@+id/addrans"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Contact No "
-        android:textColorHint="#CB393838"
+        android:layout_height="wrap_content"
+        app:counterTextColor="@color/black"
+        android:hint="Contact No"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:layout_below="@+id/addrans"
         android:id="@+id/contactans"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        app:counterTextColor="@color/black"
         android:hint="Gender (M/F)"
-        android:textColorHint="#CB393838"
-        android:textSize="18sp"
-        android:layout_marginRight="14dp"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/contactans"
-        android:layout_below="@id/addrans"
-        android:id="@+id/genderans"
-        >
-    </EditText>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:textColor="@color/black"
-        android:hint="Password"
-        android:textColorHint="#CB393838"
+        app:hintTextColor="@color/black"
         android:textSize="20sp"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_below="@+id/genderans"
+        android:layout_below="@+id/addrans"
+        android:layout_toRightOf="@id/contactans"
+        android:id="@+id/genderans"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:counterTextColor="@color/black"
+        android:hint="Password"
+        app:hintTextColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginRight="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_below="@+id/contactans"
         android:id="@+id/passwordans"
         >
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:backgroundTint="#B3A0EF"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    
 
 
     <Button

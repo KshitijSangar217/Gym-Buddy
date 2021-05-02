@@ -14,12 +14,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TrainerLogin extends AppCompatActivity {
 
-    EditText txtin_email, txtin_password;
+    TextInputLayout txtin_email, txtin_password;
     Button btn_signin;
     FirebaseAuth fAuth;
     ProgressBar fprogressbar;
@@ -40,8 +41,8 @@ public class TrainerLogin extends AppCompatActivity {
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = txtin_email.getText().toString().trim();
-                String password = txtin_password.getText().toString().trim();
+                String email = txtin_email.getEditText().getText().toString().trim();
+                String password = txtin_password.getEditText().getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
                     txtin_email.setError("Email is Required !");

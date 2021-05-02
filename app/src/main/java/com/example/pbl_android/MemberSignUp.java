@@ -13,13 +13,14 @@ import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MemberSignUp extends AppCompatActivity {
 
-    EditText musername, mpassword, mname;
+    TextInputLayout musername, mpassword, mname;
     Button memsignupbtn;
     FirebaseAuth fAuth;
 
@@ -39,9 +40,9 @@ public class MemberSignUp extends AppCompatActivity {
         memsignupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String memail = musername.getText().toString();
-                String mnm = mname.getText().toString();
-                String mpass = mpassword.getText().toString();
+                String memail = musername.getEditText().getText().toString();
+                String mnm = mname.getEditText().getText().toString();
+                String mpass = mpassword.getEditText().getText().toString();
 
                 if(TextUtils.isEmpty(memail)) {
                     musername.setError("Email is Required !");

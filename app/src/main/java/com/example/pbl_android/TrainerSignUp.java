@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TrainerSignUp extends AppCompatActivity {
 
     //Frontend variables
-    EditText femail, fname, faddress, fphone, fgender, fpassword;
+    TextInputLayout femail, fname, faddress, fphone, fgender, fpassword;
     Button fsignup;
     FirebaseAuth fAuth;
     ProgressBar fprogressbar;
@@ -50,12 +51,12 @@ public class TrainerSignUp extends AppCompatActivity {
         fsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = femail.getText().toString().trim();
-                String name = fname.getText().toString().trim();
-                String address = faddress.getText().toString().trim();
-                String phone = fphone.getText().toString().trim();
-                String gender = fgender.getText().toString().trim();
-                String password = fpassword.getText().toString().trim();
+                String email = femail.getEditText().getText().toString().trim();
+                String name = fname.getEditText().getText().toString().trim();
+                String address = faddress.getEditText().getText().toString().trim();
+                String phone = fphone.getEditText().getText().toString().trim();
+                String gender = fgender.getEditText().getText().toString().trim();
+                String password = fpassword.getEditText().getText().toString().trim();
 
 
                 if(TextUtils.isEmpty(email)){

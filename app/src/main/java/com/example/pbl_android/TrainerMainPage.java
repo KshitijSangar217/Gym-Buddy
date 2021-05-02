@@ -23,7 +23,7 @@ public class TrainerMainPage extends AppCompatActivity {
     }
 
     public void membersList(View view) {
-        Intent i = new Intent(TrainerMainPage.this, TrainersEnrolment.class);
+        Intent i = new Intent(TrainerMainPage.this, TrainersEnrolledMemberList.class);
         startActivity(i);
     }
 }

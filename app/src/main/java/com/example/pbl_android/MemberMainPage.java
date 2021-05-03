@@ -49,4 +49,9 @@ public class MemberMainPage extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),SelectType.class));
         finish();
     }
+
+    public void openMyProfile(View view) {
+        Intent i = new Intent(MemberMainPage.this, MemberProfilePage.class);
+        startActivity(i);
+    }
 }

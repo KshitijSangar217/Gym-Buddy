@@ -1,9 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MemberProfilePage">
+    tools:context=".TrainerProfilePage"
+    android:background="#DAC8FB"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:background="#47297D">
+        <TextView
+            android:id="@+id/memberProfileitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:layout_margin="50dp"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Member Profile"
+            android:textColor="#ffff"
+            android:background="#47297D"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="-35dp">
+        <Button
+            android:id="@+id/memberProfileUpdatebtn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#A654F7"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="Update"
+            android:textSize="16dp"
+            >
+        </Button>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CBB2F8"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Name"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_account_circle_30"
+                android:drawablePadding="20dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Email"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_email_30"
+                android:drawablePadding="20dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Phone"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_phone_android_30"
+                android:drawablePadding="20dp"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileGender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Gender"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_gender_person_30"
+                android:drawablePadding="20dp"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Location"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_location_on_30"
+                android:drawablePadding="20dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileAge"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Age"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_badge_certified_30"
+                android:drawablePadding="20dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileHeight"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Height"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_age_30"
+                android:drawablePadding="20dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileWeight"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Weight"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_description_30"
+                android:drawablePadding="20dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileBloodgroup"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Blood Group"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_bloodtype_30"
+                android:drawablePadding="20dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/memberProfileTrainerMail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#ffff"
+                android:hint="Trainer Email"
+                android:text=""
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_baseline_email_30"
+                android:drawablePadding="20dp"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

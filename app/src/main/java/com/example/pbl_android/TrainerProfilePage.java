@@ -133,7 +133,7 @@ public class TrainerProfilePage extends AppCompatActivity {
                 dbref.child(trainer_id).child("offlinefee").setValue(offlinefee);
                 dbref.child(trainer_id).child("online").setValue(CBonline);
                 dbref.child(trainer_id).child("offline").setValue(CBoffline);
-                Toast.makeText(TrainerProfilePage.this, "Data Updated Successfully !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TrainerProfilePage.this, "Profile Updated Successfully !", Toast.LENGTH_SHORT).show();
             }
         });
     }

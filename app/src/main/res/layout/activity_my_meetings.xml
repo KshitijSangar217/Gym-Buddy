@@ -24,33 +24,6 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-    <TableRow android:layout_marginBottom="3dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="15"
-            android:gravity="left"
-            android:text="998"
-            android:textColor="#47297D"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="80"
-            android:gravity="center"
-            android:text="Total"
-            android:textColor="#47297D"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-    </TableRow>
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

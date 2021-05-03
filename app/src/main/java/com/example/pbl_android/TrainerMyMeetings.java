@@ -47,7 +47,7 @@ public class TrainerMyMeetings extends AppCompatActivity {
                 for (DataSnapshot snapsht : snapshot.getChildren())
                 {
                     MeetingDetails md = snapsht.getValue(MeetingDetails.class);
-                    meetinglist.add(new MeetingHelperClass("Name : " + md.name, "Link : " + md.meetingid, "Date : " + md.date, "Start Time : " + md.startTime, "End Time : " + md.endTime));
+                    meetinglist.add(new MeetingHelperClass(md.name, md.meetingid, md.date, "From:  " + md.startTime, "To:  " + md.endTime));
                 }
                 meetingsadapter = new MeetingAdapter(meetinglist);
                 recyclermeetings.setAdapter(meetingsadapter);

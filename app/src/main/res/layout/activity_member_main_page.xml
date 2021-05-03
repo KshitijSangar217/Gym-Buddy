@@ -45,9 +45,10 @@
                     android:paddingTop="40dp"
                     android:drawableTop="@drawable/ic_baseline_manage_accounts_24"
                     android:text="My Account"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:textSize="12sp"
                     app:backgroundTint="#cf3c32"
+                    android:onClick="openMyProfile"
                     >
                 </Button>
 
@@ -59,7 +60,7 @@
                     android:textSize="12sp"
                     android:paddingTop="40dp"
                     android:text="Trainer"
-                    android:layout_weight="3"
+                    android:layout_weight="3.5"
                     >
                 </Button>
 
@@ -79,7 +80,7 @@
                     android:paddingTop="40dp"
                     android:drawableTop="@drawable/ic_baseline_book_24"
                     android:text="Attendance"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:textSize="12sp"
                     app:backgroundTint="#3a1973"
                     >
@@ -93,7 +94,7 @@
                     android:textSize="12sp"
                     android:paddingTop="40dp"
                     android:text="Fee Status"
-                    android:layout_weight="3"
+                    android:layout_weight="3.5"
                     >
                 </Button>
 
@@ -113,7 +114,7 @@
                     android:paddingTop="40dp"
                     android:drawableTop="@drawable/ic_baseline_add_shopping_cart_24"
                     android:text="Meeting Details"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:textSize="12sp"
                     app:backgroundTint="#55c0f2"
                     android:id="@+id/meetingdetailsbtn"
@@ -128,7 +129,7 @@
                     android:textSize="12sp"
                     android:paddingTop="40dp"
                     android:text="Diet"
-                    android:layout_weight="3"
+                    android:layout_weight="3.5"
                     android:id="@+id/dietbtn"
                     >
                 </Button>
@@ -149,7 +150,7 @@
                     android:paddingTop="40dp"
                     android:drawableTop="@drawable/ic_baseline_bookmarks_24"
                     android:text="Plan"
-                    android:layout_weight="3"
+                    android:layout_weight="2.5"
                     android:textSize="12sp"
                     app:backgroundTint="#90c961"
                     >
@@ -163,7 +164,7 @@
                     android:textSize="12sp"
                     android:paddingTop="40dp"
                     android:text="Progress"
-                    android:layout_weight="3"
+                    android:layout_weight="3.5"
                     >
                 </Button>
 

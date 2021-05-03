@@ -176,7 +176,7 @@ public class MemberInfo extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful())
                                     {
-                                        MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, Integer.parseInt(memage), Integer.parseInt(memheight), Integer.parseInt(memweight), startDate, endDate, memcontactno);
+                                        MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, memage, memheight, memweight, startDate, endDate, memcontactno);
                                         FirebaseDatabase.getInstance().getReference("Members")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                                 .setValue(mem).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -197,7 +197,7 @@ public class MemberInfo extends AppCompatActivity {
                             }); //fAuth.create
                         }
                         else {
-                            Toast.makeText(MemberInfo.this, "#Er----", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MemberInfo.this, "#Er----", Toast.LENGTH_SHORT).show();
                             fprogressbar.setVisibility(View.INVISIBLE);
                             traineremail.setError("No such trainer!! Please recheck the email.");
                             //return;

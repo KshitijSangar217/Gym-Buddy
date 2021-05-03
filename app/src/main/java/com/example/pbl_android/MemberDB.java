@@ -2,11 +2,11 @@ package com.example.pbl_android;
 
 public class MemberDB {
     public String email, password, name, traineremail, address, plan, gender, bloodgrp, startDate, endDate, contactnum;
-    public int age, height, weight;
+    public String age, height, weight;
 
     public MemberDB() {}
 
-    public MemberDB(String memail, String mpassword, String mname, String tremail, String maddress, String mplan, String mgender, String mbloodgrp, int mage, int mheight, int mweight, String mstartDate, String mendDate, String contactnum)
+    public MemberDB(String memail, String mpassword, String mname, String tremail, String maddress, String mplan, String mgender, String mbloodgrp, String mage, String mheight, String mweight, String mstartDate, String mendDate, String contactnum)
     {
         email = memail;
         password = mpassword;

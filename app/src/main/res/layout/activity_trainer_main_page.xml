@@ -10,7 +10,6 @@
         android:id="@+id/trainerlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tagline"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
@@ -18,7 +17,9 @@
         android:textAlignment="center"
         android:textColor="#0f2d5e"
         android:textSize="30sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"
+        >
+    </TextView>
 
     <TableRow
         android:layout_marginRight="20dp"
@@ -103,11 +104,13 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:paddingTop="40dp"
-            android:drawableTop="@drawable/ic_baseline_add_shopping_cart_24"
-            android:text="Products"
+            android:drawableTop="@drawable/ic_baseline_meeting_room_24"
+            android:text="Metting Details"
             android:layout_weight="3"
             android:textSize="12sp"
             app:backgroundTint="#55c0f2"
+            android:onClick="meetingdetails"
+            android:id="@+id/meetingbtn"
             >
         </Button>
 

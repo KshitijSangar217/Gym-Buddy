@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrainerMeeting">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:text="MEETING DETAILS"
+        android:gravity="center"
+        android:textColor="#0f2d5e"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/meetingdetailstitle"
+        >
+    </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/meetingdetailstitle"
+        android:layout_centerHorizontal="true"
+        android:text="My Meetings"
+        android:layout_marginTop="30dp"
+        app:backgroundTint="#164f7d"
+        android:id="@+id/mymeetings"
+        >
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mymeetings"
+        android:layout_centerHorizontal="true"
+        android:text="Schedule Meeting"
+        android:layout_marginTop="30dp"
+        app:backgroundTint="#164f7d"
+        android:id="@+id/schedulemeeting"
+        >
+    </Button>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/schedulemeeting"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:hint="Meeting Name (Unique)"
+                android:textSize="20sp"
+                app:counterTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                android:visibility="invisible"
+                android:id="@+id/meetingname">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:hint="Enter Meeting Link"
+                android:textSize="20sp"
+                app:counterTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                android:visibility="invisible"
+                android:layout_below="@+id/meetingname"
+                android:id="@+id/meetingid">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:hint="Date"
+                android:textSize="20sp"
+                app:counterTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                android:visibility="invisible"
+                android:layout_below="@+id/meetingid"
+                android:id="@+id/meetingdate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:hint="Start Timing"
+                android:textSize="20sp"
+                app:counterTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                android:visibility="invisible"
+                android:layout_below="@+id/meetingdate"
+                android:id="@+id/meetingStartTime">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="14dp"
+                android:gravity="center"
+                android:hint="End Timing"
+                android:textSize="20sp"
+                app:counterTextColor="@color/black"
+                app:hintTextColor="@color/black"
+                android:visibility="invisible"
+                android:layout_below="@+id/meetingStartTime"
+                android:id="@+id/meetingEndTime">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/meetingEndTime"
+                android:layout_centerHorizontal="true"
+                android:text="Add Meeting"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible"
+                app:backgroundTint="#164f7d"
+                android:id="@+id/addmeeting"
+
+                >
+            </Button>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

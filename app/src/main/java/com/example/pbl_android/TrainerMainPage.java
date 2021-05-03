@@ -32,4 +32,9 @@ public class TrainerMainPage extends AppCompatActivity {
         Intent i = new Intent(TrainerMainPage.this, TrainersEnrolledMemberList.class);
         startActivity(i);
     }
+
+    public void openMyProfile(View view) {
+        Intent i = new Intent(TrainerMainPage.this, TrainerProfilePage.class);
+        startActivity(i);
+    }
 }

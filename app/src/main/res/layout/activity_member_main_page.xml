@@ -112,10 +112,11 @@
                     android:layout_height="150dp"
                     android:paddingTop="40dp"
                     android:drawableTop="@drawable/ic_baseline_add_shopping_cart_24"
-                    android:text="Products"
+                    android:text="Meeting Details"
                     android:layout_weight="3"
                     android:textSize="12sp"
                     app:backgroundTint="#55c0f2"
+                    android:id="@+id/meetingdetailsbtn"
                     >
                 </Button>
 

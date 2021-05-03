@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PBL_Android">
         <activity android:name=".TrainerProfilePage"></activity>
+        <activity android:name=".TrainerMyMeetings"></activity>
+        <activity android:name=".TrainerMeeting" />
         <activity android:name=".TrainersEnrolledMemberList" />
         <activity android:name=".TrainersEnrolment" />
         <activity android:name=".MemberSignUp" />

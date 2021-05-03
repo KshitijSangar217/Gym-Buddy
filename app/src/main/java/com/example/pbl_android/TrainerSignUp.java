@@ -142,26 +142,12 @@ public class TrainerSignUp extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     //Task of adding a new Trainer data
                                     if(task.isSuccessful()){
-                                        //Backend Changes
-                                        //Getting Current user ID
-                                        String trainer_id = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-
-                                        FirebaseDatabase.getInstance().getReference("Trainers/"+ trainer_id + "/gymMembers")
-                                                .child(gm.gm_id)
-                                                .setValue(gm.gm_email).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if(task.isSuccessful()){
-                                                    //Frontend Changes
-                                                    Toast.makeText(TrainerSignUp.this, "Registration Successful !", Toast.LENGTH_SHORT).show();
-                                                    fprogressbar.setVisibility(View.INVISIBLE);
-                                                    startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
-                                                }
-                                                else {
-                                                    Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
+                                        Toast.makeText(TrainerSignUp.this, "Registration Successful !", Toast.LENGTH_SHORT).show();
+                                        fprogressbar.setVisibility(View.INVISIBLE);
+                                        startActivity(new Intent(getApplicationContext(), TrainerMainPage.class));
+                                    }
+                                    else {
+                                        Toast.makeText(TrainerSignUp.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

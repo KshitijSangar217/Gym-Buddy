@@ -17,6 +17,11 @@ public class TrainerMainPage extends AppCompatActivity {
         setContentView(R.layout.activity_trainer_main_page);
     }
 
+    public void meetingdetails (View view) {
+        Intent i = new Intent(TrainerMainPage.this, TrainerMeeting.class);
+        startActivity(i);
+    }
+
     public void logout(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),SelectType.class));

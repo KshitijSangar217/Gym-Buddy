@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/meetingcard"
+    android:layout_margin="10dp"
+    android:background="@color/black"
+    android:clickable="true"
+    android:elevation="8dp"
+    android:onClick="meetingcarddetails"
+    android:padding="50dp"
+    app:cardCornerRadius="10dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:id="@+id/meetingcardname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="80"
+                android:backgroundTint="#CBB2F8"
+                android:drawablePadding="2dp"
+                android:gravity="left|center"
+                android:paddingLeft="8dp"
+                android:text="Meeting Name"
+                android:textColor="#47297D"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/meetingcarddate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:paddingLeft="8dp"
+                android:gravity="right|center"
+                android:drawablePadding="2dp"
+                android:text="Date : "
+                android:textSize="21sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                >
+            </TextView>
+
+        </TableRow>
+
+        <TableRow
+            android:background="#FFF"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/meetingcardlink"
+                android:layout_height="40dp"
+                android:layout_weight="15"
+                android:height="0dp"
+                android:text="Meeting Link : "
+                android:textSize="21sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:background="#01158B"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/meetingcardstart"
+                android:layout_height="40dp"
+                android:layout_weight="15"
+                android:height="0dp"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:text="Start Time :"
+                android:textColor="#47297D"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:id="@+id/meetingcardend"
+                android:layout_height="40dp"
+                android:layout_weight="15"
+                android:height="0dp"
+                android:background="@drawable/card_background"
+                android:gravity="center"
+                android:text="End Time : "
+                android:textColor="#47297D"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.cardview.widget.CardView>

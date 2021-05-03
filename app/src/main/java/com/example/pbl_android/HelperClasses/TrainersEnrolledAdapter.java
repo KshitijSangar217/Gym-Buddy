@@ -38,8 +38,8 @@ public class TrainersEnrolledAdapter extends RecyclerView.Adapter<TrainersEnroll
         holder.gender.setImageResource(trainersEnrolledHelperClass.getGender());
         holder.mode.setText(trainersEnrolledHelperClass.getMode());
         holder.fee.setText(trainersEnrolledHelperClass.getFee());
-        holder.startdate.setText(trainersEnrolledHelperClass.getName());
-        holder.enddate.setText(trainersEnrolledHelperClass.getName());
+        holder.startdate.setText(trainersEnrolledHelperClass.getStart());
+        holder.enddate.setText(trainersEnrolledHelperClass.getEnd());
     }
 
     @Override
@@ -49,7 +49,7 @@ public class TrainersEnrolledAdapter extends RecyclerView.Adapter<TrainersEnroll
 
     public static class TrainerViewHolder extends RecyclerView.ViewHolder{
 
-        Button name, mode, fee, startdate, enddate;
+        TextView name, mode, fee, startdate, enddate;
         AppCompatImageButton gender;
         public TrainerViewHolder(@NonNull View itemView) {
             super(itemView);

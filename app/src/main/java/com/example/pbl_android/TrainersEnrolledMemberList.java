@@ -36,7 +36,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
 
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Kshitij Sangar", R.drawable.ic_baseline_male_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Pratima Patil", R.drawable.ic_baseline_female_50, "Remote", "Paid", "02/04/2021", "02/05/2021"));
-        enrolledMembersList.add(new TrainersEnrolledHelperClass("Shalini Mohite", R.drawable.ic_baseline_female_50, "Gym", "Unpaid", "02/04/2021", "02/05/2021"));
+        enrolledMembersList.add(new TrainersEnrolledHelperClass("Shailesh Mohite", R.drawable.ic_baseline_transgender_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Jay Kamble", R.drawable.ic_baseline_male_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));
 
          adapter = new TrainersEnrolledAdapter(enrolledMembersList);

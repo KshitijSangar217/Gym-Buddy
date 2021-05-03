@@ -43,7 +43,7 @@
                 android:layout_weight="18"
                 android:clickable="false"
                 android:drawablePadding="0dp"
-                android:background="@color/white"
+                android:textColor="#47297D"
                 android:textSize="18dp" />
         </TableRow>
 

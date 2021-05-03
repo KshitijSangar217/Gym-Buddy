@@ -61,7 +61,6 @@ public class MemberInfo extends AppCompatActivity {
         creatememacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MemberInfo.this, "OnClick() is executed", Toast.LENGTH_SHORT).show();
                 Intent currintent = getIntent();
                 String mememail = currintent.getExtras().get("Username").toString();
                 String mempassword = currintent.getExtras().get("Password").toString();
@@ -74,7 +73,7 @@ public class MemberInfo extends AppCompatActivity {
                 String membloodgrp = mbloodgrp.getText().toString();
                 String memheight = mheight.getText().toString();
                 String memweight = mweight.getText().toString();
-                String memplan;
+                String memplan, startDate = "", endDate = "";
                 /*String result = "Usernm : " + mememail + "\n";
                 result = result +  "Password : " + mempassword + "\n";
                 result = result +  "Name : " + memname + "\n";*/
@@ -162,11 +161,11 @@ public class MemberInfo extends AppCompatActivity {
                                 //Toast.makeText(MemberInfo.this, "key: " + key, Toast.LENGTH_SHORT).show();
 
                                 Log.d("Prathmesh", "onDataChange:"+key);
-                                MemberintrainerDB mit = new MemberintrainerDB(mememail, memname);
+                                MemberintrainerDB mit = new MemberintrainerDB(memcontactno, memname, memgender, startDate, endDate, memplan, true);
                                 //Toast.makeText(MemberInfo.this, "#5----", Toast.LENGTH_SHORT).show();
                                 FirebaseDatabase.getInstance().getReference("Trainers/"+key+"/gymMembers")
-                                        .child(mit.name.toString())
-                                        .setValue(mit.email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        .child(mit.phonenum.toString())
+                                        .setValue(mit).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Log.d("Prathmesh", "onComplete: Added in trainer"+key);
@@ -179,7 +178,7 @@ public class MemberInfo extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful())
                                     {
-                                        MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, Integer.parseInt(memage), Integer.parseInt(memheight), Integer.parseInt(memweight));
+                                        MemberDB mem = new MemberDB(mememail, mempassword, memname, tremail, memaddress, memplan, memgender, membloodgrp, Integer.parseInt(memage), Integer.parseInt(memheight), Integer.parseInt(memweight), startDate, endDate, memcontactno);
                                         FirebaseDatabase.getInstance().getReference("Members")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                                 .setValue(mem).addOnCompleteListener(new OnCompleteListener<Void>() {

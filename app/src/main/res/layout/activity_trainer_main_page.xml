@@ -13,15 +13,16 @@
         android:layout_below="@+id/tagline"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
         android:text="TRAINER DASHBOARD"
         android:textAlignment="center"
         android:textColor="#0f2d5e"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold"></TextView>
 
     <TableRow
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,26 +30,26 @@
         >
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="150dp"
             android:paddingTop="40dp"
             android:drawableTop="@drawable/ic_baseline_manage_accounts_24"
             android:text="My Account"
-            android:layout_weight="2.5"
+            android:layout_weight="3"
             android:textSize="12sp"
             app:backgroundTint="#cf3c32"
             >
         </Button>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="150dp"
             app:backgroundTint="#ded75d"
             android:drawableTop="@drawable/ic_baseline_people_24"
             android:textSize="12sp"
             android:paddingTop="40dp"
             android:text="Members"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:onClick="membersList"
             >
         </Button>
@@ -57,19 +58,19 @@
 
     <TableRow
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/row2"
         >
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="150dp"
             android:paddingTop="40dp"
             android:drawableTop="@drawable/ic_baseline_book_24"
             android:text="Attendance"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:textSize="12sp"
             app:backgroundTint="#90c961"
             >
@@ -83,7 +84,7 @@
             android:textSize="12sp"
             android:paddingTop="40dp"
             android:text="Fee Status"
-            android:layout_weight="2.5"
+            android:layout_weight="3"
             >
         </Button>
 
@@ -92,7 +93,7 @@
 
     <TableRow
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/row3"
@@ -104,7 +105,7 @@
             android:paddingTop="40dp"
             android:drawableTop="@drawable/ic_baseline_add_shopping_cart_24"
             android:text="Products"
-            android:layout_weight="2.5"
+            android:layout_weight="3"
             android:textSize="12sp"
             app:backgroundTint="#55c0f2"
             >
@@ -118,18 +119,11 @@
             android:textSize="12sp"
             android:paddingTop="40dp"
             android:text="Diet"
-            android:layout_weight="4"
+            android:layout_weight="3"
             >
         </Button>
 
     </TableRow>
-
-    <TableRow
-        android:id="@+id/row4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="20dp">
 
         <Button
             android:id="@+id/logout"
@@ -139,8 +133,10 @@
             android:onClick="logout"
             android:text="Log Out"
             android:textSize="14sp"
-            app:backgroundTint="@color/black"></Button>
-
-    </TableRow>
-
+            app:backgroundTint="@color/black"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            />
 </TableLayout>

@@ -94,8 +94,6 @@ public class MemberInfo extends AppCompatActivity {
                     return;
                 }
 
-
-
                 if(TextUtils.isEmpty(memaddress)) {
                     maddress.setError("Address is Required !");
                     return ;

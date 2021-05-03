@@ -10,11 +10,22 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TrainerMainPage extends AppCompatActivity {
+    Button dietbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trainer_main_page);
+
+        dietbtn = findViewById(R.id.dietbtn);
+        dietbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TrainerMainPage.this, DietActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     public void meetingdetails (View view) {

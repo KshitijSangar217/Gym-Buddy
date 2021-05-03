@@ -124,6 +124,7 @@
             android:paddingTop="40dp"
             android:text="Diet"
             android:layout_weight="3.5"
+            android:id="@+id/dietbtn"
             >
         </Button>
 

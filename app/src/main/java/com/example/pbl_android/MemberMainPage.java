@@ -18,7 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MemberMainPage extends AppCompatActivity {
-    Button meetingDetails;
+    Button meetingDetails, dietbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class MemberMainPage extends AppCompatActivity {
         setContentView(R.layout.activity_member_main_page);
 
         meetingDetails = findViewById(R.id.meetingdetailsbtn);
+        dietbtn = findViewById(R.id.dietbtn);
         meetingDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +35,13 @@ public class MemberMainPage extends AppCompatActivity {
             }
         });
 
+        dietbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MemberMainPage.this, DietActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void logout(View view) {

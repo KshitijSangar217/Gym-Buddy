@@ -42,7 +42,10 @@
             android:backgroundTint="#EBE3F9"
             android:text="Total"
             android:textColor="#47297D"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:id="@+id/totalgymbtn"
+            >
+        </Button>
 
         <Button
             android:layout_width="0dp"
@@ -50,9 +53,12 @@
             android:layout_margin="5dp"
             android:layout_weight="33"
             android:backgroundTint="#EBE3F9"
-            android:text="Gym"
+            android:text="Offline Gym Members"
             android:textColor="#47297D"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:id="@+id/offlinegymbtn"
+            >
+        </Button>
 
         <Button
             android:layout_width="0dp"
@@ -60,9 +66,12 @@
             android:layout_margin="5dp"
             android:layout_weight="33"
             android:backgroundTint="#EBE3F9"
-            android:text="Remote"
+            android:text="Online Gym Members"
             android:textColor="#47297D"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:id="@+id/onlinegymbtn"
+            >
+        </Button>
     </TableRow>
 
     <TableRow android:layout_marginBottom="3dp">

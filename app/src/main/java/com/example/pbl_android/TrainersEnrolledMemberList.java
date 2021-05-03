@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.pbl_android.HelperClasses.TrainersEnrolledAdapter;
 import com.example.pbl_android.HelperClasses.TrainersEnrolledHelperClass;
@@ -23,6 +25,7 @@ import java.util.Date;
 
 public class TrainersEnrolledMemberList extends AppCompatActivity {
 
+    Button offlinegymbtn, onlinegymbtn, totalgymbtn;
     RecyclerView recyclerTrainer;
     RecyclerView.Adapter adapter;
     @Override
@@ -32,6 +35,9 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
 
         //Hooks
         recyclerTrainer = findViewById(R.id.recyclerTrainer);
+        offlinegymbtn = findViewById(R.id.offlinegymbtn);
+        onlinegymbtn = findViewById(R.id.onlinegymbtn);
+        totalgymbtn = findViewById(R.id.totalgymbtn);
         recyclerTrainer();
     }
 
@@ -40,7 +46,6 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
         recyclerTrainer.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         ArrayList<TrainersEnrolledHelperClass> enrolledMembersList = new ArrayList<>();
-        enrolledMembersList.clear();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/gymMembers"); //.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("gymMembers");
         Log.d("Prathmesh", "recyclerTrainer: in " + FirebaseAuth.getInstance().getCurrentUser().getUid() + " " + ref);
@@ -68,10 +73,98 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {}
         });
 
+        totalgymbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerTrainer();
+            }
+        });
+
+
+        offlinegymbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerTrainer.setHasFixedSize(true);
+                recyclerTrainer.setLayoutManager(new LinearLayoutManager(TrainersEnrolledMemberList.this, LinearLayoutManager.VERTICAL, false));
+                ArrayList<TrainersEnrolledHelperClass> offlineenrolledMembersList = new ArrayList<>();
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/gymMembers");
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        offlineenrolledMembersList.clear();
+                        for (DataSnapshot offlinesnapshot : snapshot.getChildren())
+                        {
+                            MemberintrainerDB mit = offlinesnapshot.getValue(MemberintrainerDB.class);
+                            String plan = mit.plan;
+                            if(plan.equals("Offline"))
+                            {
+                                if(mit.gender.equals("M")) {
+                                    offlineenrolledMembersList.add(new TrainersEnrolledHelperClass(mit.name, R.drawable.ic_baseline_male_50, mit.plan, "Paid", mit.startDate, mit.endDate));
+                                }
+
+                                else {
+                                    offlineenrolledMembersList.add(new TrainersEnrolledHelperClass(mit.name, R.drawable.ic_baseline_female_50, mit.plan, "Paid", mit.startDate, mit.endDate));
+                                }
+                            }
+                        }
+                        adapter = new TrainersEnrolledAdapter(offlineenrolledMembersList);
+                        recyclerTrainer.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
+            }
+        });
+
+
+        onlinegymbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerTrainer.setHasFixedSize(true);
+                recyclerTrainer.setLayoutManager(new LinearLayoutManager(TrainersEnrolledMemberList.this, LinearLayoutManager.VERTICAL, false));
+                ArrayList<TrainersEnrolledHelperClass> onlineenrolledMembersList = new ArrayList<>();
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Trainers/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/gymMembers");
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        onlineenrolledMembersList.clear();
+                        for (DataSnapshot offlinesnapshot : snapshot.getChildren())
+                        {
+                            MemberintrainerDB mit = offlinesnapshot.getValue(MemberintrainerDB.class);
+                            String plan = mit.plan;
+                            if(plan.equals("Online (Remote)"))
+                            {
+                                if(mit.gender.equals("M")) {
+                                    onlineenrolledMembersList.add(new TrainersEnrolledHelperClass(mit.name, R.drawable.ic_baseline_male_50, mit.plan, "Paid", mit.startDate, mit.endDate));
+                                }
+
+                                else {
+                                    onlineenrolledMembersList.add(new TrainersEnrolledHelperClass(mit.name, R.drawable.ic_baseline_female_50, mit.plan, "Paid", mit.startDate, mit.endDate));
+                                }
+                            }
+                        }
+                        adapter = new TrainersEnrolledAdapter(onlineenrolledMembersList);
+                        recyclerTrainer.setAdapter(adapter);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
+            }
+        });
+
         /*enrolledMembersList.add(new TrainersEnrolledHelperClass("Kshitij Sangar", R.drawable.ic_baseline_male_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Pratima Patil", R.drawable.ic_baseline_female_50, "Remote", "Paid", "02/04/2021", "02/05/2021"));
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Shailesh Mohite", R.drawable.ic_baseline_transgender_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));
         enrolledMembersList.add(new TrainersEnrolledHelperClass("Jay Kamble", R.drawable.ic_baseline_male_50, "Gym", "Paid", "02/04/2021", "02/05/2021"));*/
 
     }
+
+
+
+
 }

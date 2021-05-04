@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.pbl_android.HelperClasses.TrainersEnrolledAdapter;
 import com.example.pbl_android.HelperClasses.TrainersEnrolledHelperClass;
@@ -28,6 +29,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
     Button offlinegymbtn, onlinegymbtn, totalgymbtn;
     RecyclerView recyclerTrainer;
     RecyclerView.Adapter adapter;
+    TextView counttxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
         offlinegymbtn = findViewById(R.id.offlinegymbtn);
         onlinegymbtn = findViewById(R.id.onlinegymbtn);
         totalgymbtn = findViewById(R.id.totalgymbtn);
+        counttxt = findViewById(R.id.counttext);
         recyclerTrainer();
     }
 
@@ -67,6 +70,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
                 }
                 adapter = new TrainersEnrolledAdapter(enrolledMembersList);
                 recyclerTrainer.setAdapter(adapter);
+                counttxt.setText(String.valueOf(enrolledMembersList.size()));
             }
 
             @Override
@@ -110,6 +114,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
                         }
                         adapter = new TrainersEnrolledAdapter(offlineenrolledMembersList);
                         recyclerTrainer.setAdapter(adapter);
+                        counttxt.setText(String.valueOf(offlineenrolledMembersList.size()));
                     }
 
                     @Override
@@ -148,6 +153,7 @@ public class TrainersEnrolledMemberList extends AppCompatActivity {
                         }
                         adapter = new TrainersEnrolledAdapter(onlineenrolledMembersList);
                         recyclerTrainer.setAdapter(adapter);
+                        counttxt.setText(String.valueOf(onlineenrolledMembersList.size()));
 
                     }
 

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PBL_Android">
-        <activity android:name=".PlanActivity"></activity>
+        <activity android:name=".TrainerProfileInMemberDshBoard"></activity>
+        <activity android:name=".PlanActivity" />
         <activity android:name=".DietActivity" />
         <activity android:name=".MemberProfilePage" />
         <activity android:name=".TrainerProfilePage" />

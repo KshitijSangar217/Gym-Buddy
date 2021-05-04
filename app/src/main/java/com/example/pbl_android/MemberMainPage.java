@@ -63,4 +63,9 @@ public class MemberMainPage extends AppCompatActivity {
         Intent i = new Intent(MemberMainPage.this, MemberProfilePage.class);
         startActivity(i);
     }
+
+    public void openMyTrainer(View view) {
+        Intent i = new Intent(MemberMainPage.this, TrainerProfileInMemberDshBoard.class);
+        startActivity(i);
+    }
 }

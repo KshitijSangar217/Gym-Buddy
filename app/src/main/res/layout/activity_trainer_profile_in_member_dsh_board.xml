@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DAC8FB"
+    android:orientation="vertical"
+    tools:context=".TrainerProfileInMemberDshBoard">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#47297D"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/trainerProfileitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:background="#47297D"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="My Trainer"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="-35dp">
+        <Button
+            android:id="@+id/trainerProfileUpdatebtn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#A654F7"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="DETAILS"
+            android:textSize="16dp"
+            android:clickable="false"
+            >
+        </Button>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CBB2F8"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/trainerProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_account_circle_30"
+                android:drawablePadding="20dp"
+                android:hint="Name"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_email_30"
+                android:drawablePadding="20dp"
+                android:hint="Email"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfilePhone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_phone_android_30"
+                android:drawablePadding="20dp"
+                android:hint="Phone"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileGender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_gender_person_30"
+                android:drawablePadding="20dp"
+                android:hint="Gender"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_location_on_30"
+                android:drawablePadding="20dp"
+                android:hint="Location"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileGpay"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_payment_30"
+                android:drawablePadding="20dp"
+                android:hint="Gpay ID"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileCertification"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_badge_certified_30"
+                android:drawablePadding="20dp"
+                android:hint="Certification"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileDescription"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_description_30"
+                android:drawablePadding="20dp"
+                android:hint="Description"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileOnlineFee"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_money_30"
+                android:drawablePadding="20dp"
+                android:hint="Online Fee per Month(₹)"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/trainerProfileOfflineFee"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/card_background"
+                android:backgroundTint="#ffff"
+                android:drawableLeft="@drawable/ic_baseline_money_30"
+                android:drawablePadding="20dp"
+                android:hint="Offline Fee per Month(₹)"
+                android:padding="10dp"
+                android:text=""
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

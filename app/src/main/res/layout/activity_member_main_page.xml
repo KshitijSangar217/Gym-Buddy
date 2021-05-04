@@ -153,6 +153,7 @@
                     android:layout_weight="2.5"
                     android:textSize="12sp"
                     app:backgroundTint="#90c961"
+                    android:id="@+id/planbtn"
                     >
                 </Button>
 

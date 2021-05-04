@@ -18,7 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MemberMainPage extends AppCompatActivity {
-    Button meetingDetails, dietbtn;
+    Button meetingDetails, dietbtn, planbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MemberMainPage extends AppCompatActivity {
 
         meetingDetails = findViewById(R.id.meetingdetailsbtn);
         dietbtn = findViewById(R.id.dietbtn);
+        planbtn = findViewById(R.id.planbtn);
         meetingDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +40,14 @@ public class MemberMainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MemberMainPage.this, DietActivity.class);
+                startActivity(i);
+            }
+        });
+
+        planbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MemberMainPage.this, PlanActivity.class);
                 startActivity(i);
             }
         });

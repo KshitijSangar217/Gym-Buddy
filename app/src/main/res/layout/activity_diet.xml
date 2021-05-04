@@ -61,6 +61,18 @@
                 android:id="@+id/dietimage"
                 >
             </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="This is generic diet. Contact trainer for detailed diet."
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/dietimage"
+                android:visibility="invisible"
+                android:id="@+id/instructiontext"
+                >
+            </TextView>
         </RelativeLayout>
     </ScrollView>
 

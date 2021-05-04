@@ -89,12 +89,13 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
-                    app:backgroundTint="#ad00ab"
-                    android:drawableTop="@drawable/ic_baseline_money_24"
-                    android:textSize="12sp"
                     android:paddingTop="40dp"
-                    android:text="Fee Status"
+                    android:drawableTop="@drawable/ic_baseline_bookmarks_24"
+                    android:text="Plan"
                     android:layout_weight="3.5"
+                    android:textSize="12sp"
+                    app:backgroundTint="#ad00ab"
+                    android:id="@+id/planbtn"
                     >
                 </Button>
 
@@ -136,40 +137,7 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/row4"
-                >
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:paddingTop="40dp"
-                    android:drawableTop="@drawable/ic_baseline_bookmarks_24"
-                    android:text="Plan"
-                    android:layout_weight="2.5"
-                    android:textSize="12sp"
-                    app:backgroundTint="#90c961"
-                    android:id="@+id/planbtn"
-                    >
-                </Button>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    app:backgroundTint="#258a4f"
-                    android:drawableTop="@drawable/ic_baseline_auto_graph_24"
-                    android:textSize="12sp"
-                    android:paddingTop="40dp"
-                    android:text="Progress"
-                    android:layout_weight="3.5"
-                    >
-                </Button>
-
-            </TableRow>
 
             <Button
                 android:id="@+id/logout"
@@ -187,8 +155,6 @@
                 />
 
         </TableLayout>
-
-
 
     </ScrollView>
 </TableLayout>

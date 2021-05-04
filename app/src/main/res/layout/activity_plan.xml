@@ -48,7 +48,6 @@
                 android:text="This is generic plan. Contact trainer for detailed plan."
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/planimage"
-                android:id="@+id/instructiontext"
                 >
             </TextView>
 
